@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - IMO Airconditioning Services</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --primary-color: #0059ff;
+        --primary-hover: #0047cc;
+        --dark-purple: #14006e;
+        --light-purple: #7aafff;
+        --lighter-purple: #91abff;
+        --pale-purple: #54598f;
+        --white: #ffffff;
+        --light-gray: #f8f9fa;
+        --text-dark: #212529;
+        --error-red: #ff4444;
+        --border-color: #ddd;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light-gray);
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        color: var(--primary-hover);
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--white) !important;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-bottom: 2px solid var(--error-red);
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+      }
+
+      .navbar-brand,
+      .nav-link {
+        color: var(--primary-hover) !important;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        padding: 8px 15px !important;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        opacity: 0.9;
+      }
+
+      .company-logo {
+        width: 100px;
+        height: auto;
+        transition: transform 0.3s;
+      }
+
+      /* Hero Section */
+      .about-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("shop photo.jpg");
+        background-size: cover;
+        background-position: center;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Section Styling */
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+
+      /* Cards */
+      .feature-card {
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        height: 100%;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        padding-left: 50px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--primary-color);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -50px;
+        top: 5px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--white);
+        border: 3px solid var(--primary-color);
+      }
+
+      /* Client Logos */
+      .client-logo {
+        height: 80px;
+        width: auto;
+        margin: 15px;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+      }
+
+      .client-logo:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+
+      /* Contact Info */
+      .contact-info-box {
+        background: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-right: 10px;
+      }
+
+      /* Download Button */
+      .download-btn {
+        background-color: var(--dark-purple);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .download-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+      .footer-logo {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .about-hero {
+          min-height: 50vh;
+          text-align: center;
+        }
+        
+        .navbar-collapse {
+          background-color: var(--white);
+          padding: 15px;
+          margin-top: 10px;
+          border-radius: 5px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="home.html">
+          <img
+            src="logo imo.jpg"
+            alt="IMO Airconditioning Services"
+            class="company-logo"
+          />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="clients.html">Clients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <img
+          src="updated 25 years.jpg"
+          alt="25 Years of Excellence"
+          class="company-logo d-none d-lg-block"
+        />
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="about-hero">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-lg-8">
+            <h1 class="display-3 fw-bold mb-4">About IMO Airconditioning</h1>
+            <p class="lead mb-5">
+              Satisfying Customer needs in HVAC since 1996
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Our Story Section -->
+      <section class="py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <h2 class="section-title mb-4">Our Brand Story</h2>
+              <p class="lead">
+                IMO Airconditioning Services Pvt. Ltd. was established in
+                October 1996 by Founder Director Mr. Narayan Lakshmanan. We got
+                the ISO certification 9001:2008 from 2008-2017 from Bureau
+                Veritas. We are an authorized sales & service dealer for leading
+                HVAC brands.
+              </p>
+              <p>
+                Our business division is located in Chembur-E, Mumbai with an
+                integrated facility housing all processes under one roof. We
+                have a 1000 sq.ft. sales office and a 1000 sq.ft. service
+                station & godown fully equipped with tools and tackles.
+              </p>
+              <p>
+                Our team consists of over 69 personnel including sales officers,
+                office staff, service managers, ITI certified service mechanics,
+                and erection managers/supervisors who strive to achieve our
+                mission of customer satisfaction.
+              </p>
+              <a href="IMO-PROFILE 3.pptx" class="download-btn mt-3" download>
+                <i class="fas fa-file-powerpoint me-2"></i> Download Company
+                Profile
+              </a>
+            </div>
+            <div class="col-lg-6">
+              <img
+                src="team.png"
+                alt="Our Team"
+                class="img-fluid rounded shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Service Features Section -->
+      <section class="py-5 bg-white">
+        <div class="container">
+          <h2 class="section-title text-center mb-5">Our Service Features</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="feature-card p-4 text-center">
+                <i class="fas fa-truck feature-icon"></i>
+                <h3>Mobile Service Van</h3>
+                <p>
+                  For faster complaint attendance and emergency services across Mumbai.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card p-4 text-center">
+                <i class="fas fa-eye feature-icon"></i>
+                <h3>Daily Monitoring</h3>
+                <p>
+                  Daily eye on due PM Service & Complaints to ensure timely resolution.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card p-4 text-center">
+                <i class="fas fa-bolt feature-icon"></i>
+                <h3>Energy-Efficient HVAC Solutions</h3>
+                <p>
+                  We provide high-efficiency HVAC systems that help reduce your energy consumption and lower your operating costs while maintaining optimal comfort.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Our Team Structure -->
+      <section class="py-5">
+        <div class="container">
+          <h2 class="section-title text-center mb-5">Our Team Structure</h2>
+          <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="text-center">
+                <h3 class="text-primary">2</h3>
+                <p>Sales Officers</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="text-center">
+                <h3 class="text-primary">12</h3>
+                <p>Office Staff</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="text-center">
+                <h3 class="text-primary">8</h3>
+                <p>Service Managers</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="text-center">
+                <h3 class="text-primary">35</h3>
+                <p>ITI Certified Mechanics</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+              <div class="text-center">
+                <h3 class="text-primary">12</h3>
+                <p>ITI Certified Erection Managers/Supervisors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5 bg-light" id="ourImpact">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+              <h2 class="section-title mb-4">Our Impact</h2>
+              <p class="lead mb-5">The numbers that tell our story</p>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                  <h3 class="display-4 text-primary mb-3" id="eventsCounter">
+                    0
+                  </h3>
+                  <p class="card-text fs-5 fw-bold">
+                    Air Conditioning units Sold
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4">
+                  <h3 class="display-4 text-primary mb-3" id="guestsCounter">
+                    0
+                  </h3>
+                  <p class="card-text fs-5 fw-bold">Happy Clients/ CUstomers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5 bg-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+              <h2 class="section-title mb-4">Meet Our Founder</h2>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div
+                class="founder-card"
+                style="
+                  border-radius: 15px;
+                  overflow: hidden;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                  transition: all 0.3s ease;
+                  border: none;
+                "
+              >
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img
+                      src="NarayanLakshmanan.jpg"
+                      class="img-fluid h-100"
+                      alt="Mr. Narayan Lakshmanan"
+                      style="object-fit: cover; height: 100%; min-height: 350px"
+                    />
+                  </div>
+                  <div class="col-md-7">
+                    <div
+                      class="card-body p-4"
+                      style="
+                        background: linear-gradient(
+                          135deg,
+                          var(--light-gray) 0%,
+                          var(--white) 100%
+                        );
+                      "
+                    >
+                      <h3
+                        class="card-title mb-3"
+                        style="
+                          color: var(--primary-color);
+                          font-family: 'Playfair Display', serif;
+                        "
+                      >
+                        Mr. Narayan Lakshmanan
+                      </h3>
+                      <div
+                        class="position-relative mb-4"
+                        style="
+                          width: 80px;
+                          height: 3px;
+                          background: var(--primary-color);
+                        "
+                      ></div>
+                      <p class="card-text mb-3">
+                        With over three decades of experience in the HVAC
+                        industry, Narayan Lakshmanan has been instrumental in
+                        IMO's growth and success.
+                      </p>
+                      <p class="card-text">
+                        Under his leadership, the company has built a reputation
+                        for delivering high-quality, energy-efficient air
+                        conditioning solutions tailored to meet the diverse
+                        needs of its clients.
+                      </p>
+                      <div class="mt-4">
+                        <a
+                          href="mailto:narayan@imohvac.com"
+                          class="btn btn-primary me-2"
+                        >
+                          <i class="fas fa-envelope me-1"></i> Contact
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/narayan-lakshmanan-a3926b7a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                          class="btn btn-outline-primary"
+                        >
+                          <i class="fas fa-link me-1"></i> Profile
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <img src="logo imo.jpg" alt="IMO Airconditioning Services" class="footer-logo">
+            <h5>IMO Airconditioning Services</h5>
+            <p>Providing Premium HVAC Solutions since 1996.</p>
+          </div>
+          <div class="col-lg-4 mb-4 mb-lg-0"></div>
+          <div class="col-lg-4">
+            <h5>Contact Us</h5>
+            <p><i class="fas fa-envelope me-2"></i> <a href="mailto:sales@imohvac.com">sales@imohvac.com</a></p>
+            <p><i class="fas fa-phone me-2"></i> <a href="tel:+919821883619">+91-9821883619</a></p>
+          </div>
+        </div>
+        <hr class="my-4 bg-light opacity-25">
+        <div class="text-center">
+          <p class="mb-0">&copy; 2025 IMO Airconditioning Services Pvt. Ltd. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function animateCounter(elementId, finalValue, suffix = "") {
+        let current = 0;
+        const increment = finalValue / 50; // Faster animation
+        const element = document.getElementById(elementId);
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= finalValue) {
+            clearInterval(timer);
+            current = finalValue;
+            element.textContent = finalValue + suffix;
+          } else {
+            element.textContent = Math.floor(current) + suffix;
+          }
+        }, 20);
+      }
+
+      // Start counters when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+          animateCounter("eventsCounter", 25000, "+");
+          animateCounter("guestsCounter", 3000, "+");
+        }, 500);
+      });
+
+      // Restart animation when section comes into view
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter("eventsCounter", 2500, "+");
+              animateCounter("guestsCounter", 3000, "+");
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      const impactSection = document.querySelector("#ourImpact");
+      if (impactSection) {
+        observer.observe(impactSection);
+      }
+    </script>
+  </body>
+</html>
