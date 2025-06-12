@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>About Us - IMO Airconditioning Services</title>
     <!-- Bootstrap CSS -->
     <link
@@ -96,15 +99,18 @@
 
       /* Hero Section */
       .about-hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("shop photo.jpg");
+        background-color: var(--primary-color);
+        color: white;
+        padding: 80px 0 60px;
+        text-align: center;
+        margin-bottom: 40px;
+        background-image: linear-gradient(
+            rgba(0, 64, 128, 0.9),
+            rgba(0, 64, 128, 0.9)
+          );
         background-size: cover;
         background-position: center;
-        min-height: 60vh;
-        display: flex;
-        align-items: center;
-        color: white;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        
       }
 
       /* Section Styling */
@@ -231,16 +237,16 @@
 
       /* Footer */
       footer {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
 
-        footer a {
-            color: var(--white);
-            text-decoration: underline;
-        }
+      footer a {
+        color: var(--white);
+        text-decoration: underline;
+      }
 
       .footer-logo {
         max-width: 200px;
@@ -258,13 +264,135 @@
           min-height: 50vh;
           text-align: center;
         }
-        
-        .navbar-collapse {
+
+        .navbar-collapse .company-logo {
           background-color: var(--white);
           padding: 15px;
           margin-top: 10px;
           border-radius: 5px;
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          display: none !important;
+        }
+        .navbar-nav {
+          padding-top: 15px;
+        }
+
+        .nav-item {
+          margin-bottom: 5px;
+        }
+
+        .navbar-brand .company-logo {
+          min-width: 80px;
+        }
+        section {
+          padding: 3rem 0 !important;
+        }
+
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        h2 {
+          font-size: 1.75rem !important;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        .row {
+          flex-direction: column;
+        }
+
+        .col-md-6,
+        .col-lg-6,
+        .col-md-4,
+        .col-lg-4 {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+      @media (max-width: 992px) {
+        .founder-card .col-md-5,
+        .founder-card .col-md-7 {
+          width: 100%;
+        }
+
+        .founder-card img {
+          min-height: 300px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-hero {
+          min-height: 60vh;
+          padding: 60px 0;
+        }
+
+        .display-3 {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .section-title::after {
+          width: 60px;
+          bottom: -8px;
+        }
+
+        .feature-card {
+          margin-bottom: 20px;
+        }
+
+        .navbar-collapse .company-logo {
+          display: none !important;
+        }
+
+        .navbar-nav {
+          padding-top: 15px;
+        }
+
+        .nav-item {
+          margin-bottom: 8px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .about-hero {
+          min-height: 50vh;
+        }
+
+        .display-3 {
+          font-size: 2rem;
+        }
+
+        .lead {
+          font-size: 1rem;
+        }
+
+        .feature-icon {
+          font-size: 2rem;
+        }
+
+        .download-btn {
+          padding: 8px 15px;
+          font-size: 0.9rem;
+        }
+
+        .client-logo {
+          height: 60px;
+          margin: 10px;
+        }
+
+        .contact-info-box {
+          padding: 20px;
+        }
+
+        .contact-icon {
+          font-size: 1.2rem;
         }
       }
     </style>
@@ -274,13 +402,24 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="home.html">
-          <img
-            src="logo imo.jpg"
-            alt="IMO Airconditioning Services"
-            class="company-logo"
-          />
+          <h1 class="text-center" style="color: var(--primary-color)">
+            <img
+              src="logo imo.jpg"
+              alt="IMO Airconditioning Services"
+              class="company-logo"
+            />
+            About us
+          </h1>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
@@ -307,17 +446,12 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="about-hero">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-lg-8">
-            <h1 class="display-3 fw-bold mb-4">About IMO Airconditioning</h1>
-            <p class="lead mb-5">
-              Satisfying Customer needs in HVAC since 1996
-            </p>
-          </div>
-        </div>
+      <div class="container">
+        <h1>About IMO Airconditioning</h1><br>
+        <p class="lead">
+          Satisfying Customer needs in HVAC since 1996
+        </p>
       </div>
     </header>
 
@@ -374,7 +508,8 @@
                 <i class="fas fa-truck feature-icon"></i>
                 <h3>Mobile Service Van</h3>
                 <p>
-                  For faster complaint attendance and emergency services across Mumbai.
+                  For faster complaint attendance and emergency services across
+                  Mumbai.
                 </p>
               </div>
             </div>
@@ -383,7 +518,8 @@
                 <i class="fas fa-eye feature-icon"></i>
                 <h3>Daily Monitoring</h3>
                 <p>
-                  Daily eye on due PM Service & Complaints to ensure timely resolution.
+                  Daily eye on due PM Service & Complaints to ensure timely
+                  resolution.
                 </p>
               </div>
             </div>
@@ -392,14 +528,15 @@
                 <i class="fas fa-bolt feature-icon"></i>
                 <h3>Energy-Efficient HVAC Solutions</h3>
                 <p>
-                  We provide high-efficiency HVAC systems that help reduce your energy consumption and lower your operating costs while maintaining optimal comfort.
+                  We provide high-efficiency HVAC systems that help reduce your
+                  energy consumption and lower your operating costs while
+                  maintaining optimal comfort.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
 
       <!-- Our Team Structure -->
       <section class="py-5">
@@ -467,7 +604,7 @@
                   <h3 class="display-4 text-primary mb-3" id="guestsCounter">
                     0
                   </h3>
-                  <p class="card-text fs-5 fw-bold">Happy Clients/ CUstomers</p>
+                  <p class="card-text fs-5 fw-bold">Happy Clients/ Customers</p>
                 </div>
               </div>
             </div>
@@ -549,12 +686,6 @@
                         >
                           <i class="fas fa-envelope me-1"></i> Contact
                         </a>
-                        <a
-                          href="https://www.linkedin.com/in/narayan-lakshmanan-a3926b7a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                          class="btn btn-outline-primary"
-                        >
-                          <i class="fas fa-link me-1"></i> Profile
-                        </a>
                       </div>
                     </div>
                   </div>
@@ -571,20 +702,33 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="logo imo.jpg" alt="IMO Airconditioning Services" class="footer-logo">
+            <img
+              src="logo imo.jpg"
+              alt="IMO Airconditioning Services"
+              class="footer-logo"
+            />
             <h5>IMO Airconditioning Services</h5>
             <p>Providing Premium HVAC Solutions since 1996.</p>
           </div>
           <div class="col-lg-4 mb-4 mb-lg-0"></div>
           <div class="col-lg-4">
             <h5>Contact Us</h5>
-            <p><i class="fas fa-envelope me-2"></i> <a href="mailto:sales@imohvac.com">sales@imohvac.com</a></p>
-            <p><i class="fas fa-phone me-2"></i> <a href="tel:+919821883619">+91-9821883619</a></p>
+            <p>
+              <i class="fas fa-envelope me-2"></i>
+              <a href="mailto:sales@imohvac.com">sales@imohvac.com</a>
+            </p>
+            <p>
+              <i class="fas fa-phone me-2"></i>
+              <a href="tel:+919821883619">+91-9821883619</a>
+            </p>
           </div>
         </div>
-        <hr class="my-4 bg-light opacity-25">
+        <hr class="my-4 bg-light opacity-25" />
         <div class="text-center">
-          <p class="mb-0">&copy; 2025 IMO Airconditioning Services Pvt. Ltd. All rights reserved.</p>
+          <p class="mb-0">
+            &copy; 2025 IMO Airconditioning Services Pvt. Ltd. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
@@ -622,7 +766,7 @@
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              animateCounter("eventsCounter", 2500, "+");
+              animateCounter("eventsCounter", 25000, "+");
               animateCounter("guestsCounter", 3000, "+");
             }
           });
